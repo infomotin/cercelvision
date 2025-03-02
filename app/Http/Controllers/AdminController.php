@@ -78,5 +78,33 @@ class AdminController extends Controller
 
         return redirect()->route('admin.forget_password')->with('success', 'Password reset link sent to your email');
     }
-    //AdminDashboard
+    //AdminResetPassword
+    public function AdminResetPassword($token, $email)
+    {
+        $admin_data = Admin::where('email', $email)->where('token', $token)->first();
+        if(!$admin_data){
+            return redirect()->route('admin.forget_password')->with('error', 'Invalid Token');
+        }
+        return view('admin.reset_password', compact('token', 'email'));
+    }
+    //AdminResetPasswordSubmit
+    public function AdminResetPasswordSubmit(Request $request)
+    {
+        // dd($request->all());
+        // $request->validate([
+        //     'password' => 'required',
+        //     'confirm_password' => 'required|same:password',
+        // ]);
+
+        // dd($request->all());
+        $admin_data = Admin::where('email', $request->email)->first();
+        // dd($admin_data);
+        if(!$admin_data){
+            return redirect()->route('admin.forget_password')->with('error', 'Invalid Token');
+        }
+        $admin_data->token = '';
+        $admin_data->password = Hash::make($request->password);
+        $admin_data->update();
+        return redirect()->route('admin.login')->with('success', 'Password Reset Successfully');
+    }
 }
