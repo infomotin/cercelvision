@@ -85,14 +85,14 @@
                                         </div>
                                         <div class="mb-3 mt-4">
                                             <label class="form-label">New Password</label>
-                                            <input type="text" id="password" name="password" class="form-control" placeholder="Enter new password" />
+                                            <input type="password" id="password" name="password" class="form-control" placeholder="Enter new password" />
                                         </div>
                                         <div class="mb-4">
                                             <label class="form-label">Confirm Password</label>
-                                            <input type="text" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm password" />
+                                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm password" />
                                         </div>
                                         <div class="d-grid gap-2">
-                                            <button type="button" class="btn btn-primary">Change Password</button> <a href="authentication-login.html" class="btn btn-light"><i class='bx bx-arrow-back mr-1'></i>Back to Login</a>
+                                            <button type="submit" class="btn btn-primary">Change Password</button> <a href="authentication-login.html" class="btn btn-light"><i class='bx bx-arrow-back mr-1'></i>Back to Login</a>
                                         </div>
                                     </form>
 								</div>
