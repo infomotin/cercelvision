@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Models\Admin;
 
 Route::get('/', function () {
+    // dd('hello');
     return view('welcome');
 });
 
