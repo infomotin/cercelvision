@@ -22,7 +22,7 @@
                                 <span data-key="t-invoices">Profile</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="apps-invoices-list.html" data-key="t-invoice-list">Update Profile</a></li>
+                                <li><a href="{{ route('member.profile') }}" data-key="t-invoice-list">Update Profile</a></li>
                                 <li><a href="apps-invoices-detail.html" data-key="t-invoice-detail">Genarate Profile</a></li>
                             </ul>
                         </li>

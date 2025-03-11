@@ -27,12 +27,12 @@
             </button>
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
+            {{-- <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search...">
                     <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
                 </div>
-            </form>
+            </form> --}}
         </div>
 
         <div class="d-flex">
@@ -86,12 +86,15 @@
                     </div>
                     <div data-simplebar style="max-height: 230px;">
                         <a href="#!" class="text-reset notification-item">
+                            @php
+                                $userData = Auth::user();
+                            @endphp
                             <div class="d-flex">
                                 <div class="flex-shrink-0 me-3">
                                     <img src="{{ asset('backend/assets/images/users/avatar-3.jpg') }}" class="rounded-circle avatar-sm" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1">James Lemire</h6>
+                                    <h6 class="mb-1"></h6>
                                     <div class="font-size-13 text-muted">
                                         <p class="mb-1">It will seem like simplified English.</p>
                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span></p>
@@ -138,7 +141,7 @@
                                     <img src="{{ asset('backend/assets/images/users/avatar-6.jpg') }}" class="rounded-circle avatar-sm" alt="user-pic">
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1">Salena Layfield</h6>
+                                    <h6 class="mb-1">Kenneth Brown</h6>
                                     <div class="font-size-13 text-muted">
                                         <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>1 hour ago</span></p>
@@ -162,7 +165,7 @@
                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="{{ asset('backend/assets/images/users/avatar-1.jpg') }}"
                         alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1 fw-medium">Shawn L.</span>
+                    <span class="d-none d-xl-inline-block ms-1 fw-medium">{{ $userData->name }}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i> 
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">

@@ -12,10 +12,11 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('member.member_dashboard');
+    return view('member.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 //
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/member/profile', [MemberController::class, 'MemberProfile'])->name('member.profile');
     Route::get('/logout', [MemberController::class, 'MemberLogout'])->name('member.logout');
 });
 

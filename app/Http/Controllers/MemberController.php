@@ -8,8 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
-    //logout
+    // MemberProfile
+    public function MemberProfile(): \Illuminate\Contracts\View\View
+    {
+        $AuthUser = Auth::user();
+        return view('member.profile.member-profile', compact('AuthUser'));
+    }
 
+    //logout
     public function MemberLogout(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
