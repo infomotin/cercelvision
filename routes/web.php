@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
 use App\Models\Admin;
 
 Route::get('/', function () {
@@ -13,6 +14,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('member.member_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+//
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/logout', [MemberController::class, 'MemberLogout'])->name('member.logout');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
