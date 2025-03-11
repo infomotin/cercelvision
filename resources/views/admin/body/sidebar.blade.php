@@ -42,6 +42,17 @@
                                 <li><a href="apps-email-read.html" data-key="t-read-email">Read Email</a></li>
                             </ul>
                         </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <span data-key="t-email">Manage User</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('admin.view_user') }}" data-key="t-inbox">All User</a></li>
+                                <li><a href="apps-email-read.html" data-key="t-read-email">Add User</a></li>
+                                <li><a href="{{ route('admin.view_member') }}" data-key="t-read-email">All Member List</a></li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow">
                                 <span data-key="t-invoices">Invoices</span>

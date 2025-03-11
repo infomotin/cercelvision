@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Mail\Websitemail;
 use App\Models\Admin;
-
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -106,5 +106,19 @@ class AdminController extends Controller
         $admin_data->password = Hash::make($request->password);
         $admin_data->update();
         return redirect()->route('admin.login')->with('success', 'Password Reset Successfully');
+    }
+    //ViewUser
+    public function ViewUser()
+    {
+        $allUser = Admin::all();
+        return view('admin.view_user', compact('allUser'));
+        
+    }
+    //ViewMember
+    public function ViewMember()
+    {
+        $allMember = User::all();
+        return view('admin.view_member', compact('allMember'));
+        
     }
 }

@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('member.member_dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -36,4 +36,14 @@ Route::post('/admin/reset_password_submit', [AdminController::class, 'AdminReset
 Route::middleware('admin')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+    //view all user 
+    Route::get('/admin/view_user', [AdminController::class, 'ViewUser'])->name('admin.view_user');
+    //edit user
+    // Route::get('/admin/edit_user/{id}', [AdminController::class, 'EditUser'])->name('admin.edit_user');
+    // //update user
+    // Route::post('/admin/update_user/{id}', [AdminController::class, 'UpdateUser'])->name('admin.update_user');
+    // //delete user
+    // Route::get('/admin/delete_user/{id}', [AdminController::class, 'DeleteUser'])->name('admin.delete_user');
+    // all member
+    Route::get('/admin/view_member', [AdminController::class, 'ViewMember'])->name('admin.view_member');
 });
